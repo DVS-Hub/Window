@@ -76,7 +76,7 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
   }
   function showContent(i = 0) {
     contents[i].style.display = 'block';
-    contents[i].classList.add('animate__animated', 'animate__fadeIn');
+    contents[i].classList.add('animated', 'fadeIn');
     tabs[i].classList.add(activeClass);
   }
   hideContent();

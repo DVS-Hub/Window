@@ -1,7 +1,8 @@
-const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
+const tabs = (headerSelector, tabSelector, contentSelector, activeClass, display = 'block') => {
     const header = document.querySelector(headerSelector),
           tabs = document.querySelectorAll(tabSelector),
           contents = document.querySelectorAll(contentSelector);
+
 
     function hideContent(){
         contents.forEach(item => {
@@ -13,8 +14,8 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
     }
 
     function showContent(i = 0){
-        contents[i].style.display = 'block';
-        contents[i].classList.add('animate__animated', 'animate__fadeIn');
+        contents[i].style.display = display;
+        contents[i].classList.add('animated', 'fadeIn');
         tabs[i].classList.add(activeClass);
     }
 
@@ -23,7 +24,6 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
 
     header.addEventListener('click', (e) => {
         const target = e.target;
-        console.log(target);
         if (target && (target.classList.contains(tabSelector.replace(/\./, "")) || 
             target.parentNode.classList.contains(tabSelector.replace(/\./, ""))))
             tabs.forEach((item, i) => {
